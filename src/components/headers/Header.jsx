@@ -1,10 +1,10 @@
-import { Logo } from "./logo";
+import { Logo, SwitchTheam } from "./index";
 
 export function Header() {
   return (
     <div>
-      <Logo/>
-      
+      <Logo />
+      <SwitchTheam></SwitchTheam>
     </div>
-  )
+  );
 }
