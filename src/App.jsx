@@ -1,5 +1,11 @@
+import { Header } from "./components/headers/Header";
+
 function App() {
-  return (<h1 className="text-6xl font-inter">Hello World</h1>);
+  return (
+    <>
+      <Header />
+    </>
+  );
 }
 
 export default App;
