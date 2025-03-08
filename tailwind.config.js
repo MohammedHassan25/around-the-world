@@ -7,7 +7,7 @@ export default {
   theme: {
     extend: {
       fontFamily: {
-        display: ['Oswald', 'sans-serif'],
+        inter: ['inter', 'sans-serif'],
       }
     },
   },
