@@ -4,7 +4,7 @@ export function Header() {
   return (
     <div>
       <Logo />
-      <SwitchTheam></SwitchTheam>
+      <SwitchTheam/>
     </div>
   );
 }
