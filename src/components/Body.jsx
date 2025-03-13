@@ -1,9 +1,10 @@
-import { SearchAndRegion } from "./search and region menu/SearchAndRegion";
+import { Countries, SearchAndRegion } from "./index";
 
 export function Body() {
   return (
-    <div className="h-screen bg-gray-100 px-0 pt-12 dark:bg-gray-900 md:px-20">
+    <div className="bg-gray-100 px-0 pb-16 pt-12 dark:bg-gray-900 md:px-20">
       <SearchAndRegion />
+      <Countries />
     </div>
   );
 }

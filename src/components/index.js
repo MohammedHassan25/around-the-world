@@ -4,4 +4,6 @@ export * from "./headers/SwitchTheme.jsx";
 export * from "./search and region menu/RegionMenu.jsx";
 export * from "./search and region menu/Search.jsx";
 export * from "./search and region menu/SearchAndRegion.jsx";
+export * from "./countries components/Countries.jsx"
+export * from "./countries components/CountryCard.jsx"
 export * from "./Body.jsx"
