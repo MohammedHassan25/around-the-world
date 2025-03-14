@@ -1,29 +1,35 @@
-export function CountryCard() {
+export function CountryCard(props) {
+  const number = props.population;
+  const formattedNumber = number.toLocaleString("en-US");
+  console.log(formattedNumber); // Output: "5,483,450"
+
   return (
     <a
       href="#"
-      className="block h-full w-64 rounded-[8px] lg:w-[264px] bg-gray-50 p-3 pb-9 text-gray-900 shadow-md dark:bg-gray-800 dark:text-gray-50"
+      className="block h-full w-64 rounded-[8px] bg-gray-50 p-3 pb-9 text-gray-900 shadow-md dark:bg-gray-800 dark:text-gray-50 lg:w-[264px]"
     >
       <img
-        src="https://placehold.jp/243x157.png"
-        alt="Country"
+        src={props.flag}
+        alt={props.name}
         className="h-[157px] w-60 rounded-[8px]"
         loading="lazy"
       />
-      <p className="py-4 pl-4 text-lg font-extrabold">Egypt</p>
+      <p className="py-4 pl-4 text-lg font-extrabold">{props.name}</p>
       <div className="pl-4">
         <div>
           <p className="flex items-center justify-start gap-1 pb-2">
             <span className="font-semibold">Population: </span>
-            <span className="font-light">5,483,450</span>
+            <span className="font-light">
+              {formattedNumber}
+            </span>
           </p>
           <p className="flex items-center justify-start gap-1 pb-2">
             <span className="font-semibold">Region: </span>
-            <span className="font-light">Asia</span>
+            <span className="font-light">{props.region}</span>
           </p>
           <p className="flex items-center justify-start gap-1">
             <span className="font-semibold">Capital: </span>
-            <span className="font-light">AlQuds</span>
+            <span className="font-light">{props.capital}</span>
           </p>
         </div>
       </div>
