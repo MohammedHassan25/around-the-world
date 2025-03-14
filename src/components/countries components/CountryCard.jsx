@@ -1,8 +1,6 @@
 export function CountryCard(props) {
   const number = props.population;
   const formattedNumber = number.toLocaleString("en-US");
-  console.log(formattedNumber); // Output: "5,483,450"
-
   return (
     <a
       href="#"
@@ -19,9 +17,7 @@ export function CountryCard(props) {
         <div>
           <p className="flex items-center justify-start gap-1 pb-2">
             <span className="font-semibold">Population: </span>
-            <span className="font-light">
-              {formattedNumber}
-            </span>
+            <span className="font-light">{formattedNumber}</span>
           </p>
           <p className="flex items-center justify-start gap-1 pb-2">
             <span className="font-semibold">Region: </span>
