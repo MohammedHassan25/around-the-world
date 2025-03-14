@@ -52,7 +52,9 @@ export function Body() {
   return (
     <div className="bg-gray-100 px-0 pb-16 pt-12 dark:bg-gray-900 md:px-20">
       {loading ? (
-        <p>Loading ...</p>
+        <p className="text-center text-lg font-semibold text-gray-700 dark:text-gray-300 h-screen">
+          Loading ...
+        </p>
       ) : (
         <>
           <SearchAndRegion />
