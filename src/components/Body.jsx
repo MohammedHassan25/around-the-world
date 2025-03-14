@@ -27,7 +27,7 @@ export function Body() {
             ? country.subregion
             : country.name?.common,
           capital: country.capital ? country.capital[0] : null,
-          flag: country.flags?.png,
+          flag: country.flags?.svg,
           domain: country.tld ? country.tld[0] : null,
           languages: country.languages
             ? Object.values(country.languages)[0]
