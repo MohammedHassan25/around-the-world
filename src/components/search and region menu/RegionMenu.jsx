@@ -12,9 +12,10 @@ export function RegionMenu(props) {
   ];
 
   const handleChange = (e) => {
-    const filteredRegion = props.countries.filter((country) =>
-      e.label === "All Region" ? props.countries : country.region === e.label,
-    );
+    const filteredRegion =
+      e.label === "All Region"
+        ? props.countries
+        : props.countries.filter((country) => country.region === e.label);
     props.setFilteredCountries(filteredRegion);
   };
 
