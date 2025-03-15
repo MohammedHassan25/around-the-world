@@ -1,6 +1,14 @@
-export function Search() {
+export function Search(props) {
+  const filterSearch = () => {
+    const searchValue = props.input.current?.value.toLowerCase();
+    const filteredCountries = props.countries.filter((country) => {
+      return country.name.toLowerCase().includes(searchValue);
+    });
+    props.setFilteredCountries(filteredCountries);
+  };
+
   return (
-    <div className="flex h-14 w-full md:w-[480px] mb-10 md:mb-0 items-center justify-center gap-6 overflow-hidden rounded-[115px] bg-gray-50 pl-8 shadow dark:bg-gray-800">
+    <div className="mb-10 flex h-14 w-full items-center justify-center gap-6 overflow-hidden rounded-[115px] bg-gray-50 pl-8 shadow dark:bg-gray-800 md:mb-0 md:w-[480px]">
       <svg
         width="18"
         height="18"
@@ -25,6 +33,8 @@ export function Search() {
         name=""
         placeholder="Search for a country…"
         id=""
+        ref={props.input}
+        onChange={filterSearch}
       />
     </div>
   );
