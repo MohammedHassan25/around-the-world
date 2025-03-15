@@ -6,4 +6,5 @@ export * from "./search and region menu/Search.jsx";
 export * from "./search and region menu/SearchAndRegion.jsx";
 export * from "./countries components/Countries.jsx"
 export * from "./countries components/CountryCard.jsx"
+export * from "./dataErrorComponents/NotFoundComponent.jsx"
 export * from "./Body.jsx"
