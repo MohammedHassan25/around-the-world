@@ -2,6 +2,7 @@ import Select from "react-select";
 
 export function RegionMenu(props) {
   const options = [
+    { value: "all Region", label: "All Region" },
     { value: "africa", label: "Africa" },
     { value: "americas", label: "Americas" },
     { value: "asia", label: "Asia" },
@@ -10,9 +11,9 @@ export function RegionMenu(props) {
     { value: "antarctic", label: "Antarctic" },
   ];
 
-  const handleChange = (selectedOption) => {
-    const filteredRegion = props.countries.filter(
-      (country) => country.region === selectedOption.label,
+  const handleChange = (e) => {
+    const filteredRegion = props.countries.filter((country) =>
+      e.label === "All Region" ? props.countries : country.region === e.label,
     );
     props.setFilteredCountries(filteredRegion);
   };
@@ -20,6 +21,7 @@ export function RegionMenu(props) {
   return (
     <>
       <Select
+        defaultValue={options[0]}
         id="region-filter"
         name="region"
         classNames={{
@@ -38,7 +40,7 @@ export function RegionMenu(props) {
             }`,
           menu: () => "bg-gray-100 dark:bg-gray-800 dark:text-gray-100",
         }}
-        placeholder="Filter by Region"
+        placeholder="Search by Region"
         options={options}
         onChange={handleChange}
       />
