@@ -1,6 +1,8 @@
+import { Link } from "react-router-dom";
+
 export function Logo() {
   return (
-    <a className="flex content-center items-center gap-3">
+    <Link to="./" className="flex content-center items-center gap-3">
       <svg
         width="24"
         height="28"
@@ -39,6 +41,6 @@ export function Logo() {
         />
       </svg>
       <p className="text-2xl font-semibold">Around The World</p>
-    </a>
+    </Link>
   );
 }

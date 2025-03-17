@@ -1,12 +1,25 @@
-import { Header, Body } from "./components/index";
+import { createBrowserRouter, RouterProvider } from "react-router";
+import { MainPage, Body, CountryPage } from "./components/index";
+
+let router = createBrowserRouter([
+  {
+    path: "/",
+    element: <MainPage />,
+    children: [
+      {
+        path: "/",
+        element: <Body />,
+      },
+      {
+        path: "/:name",
+        element: <CountryPage />,
+      },
+    ],
+  },
+]);
 
 function App() {
-  return (
-    <div className="font-inter dark:text-gray-100">
-      <Header />
-      <Body />
-    </div>
-  );
+  return <RouterProvider router={router} />;
 }
 
 export default App;

@@ -1,9 +1,9 @@
+import { Link } from "react-router-dom";
+
 export function CountryCard(props) {
-  const number = props.population;
-  const formattedNumber = number.toLocaleString("en-US");
   return (
-    <a
-      href="#"
+    <Link
+      to={`./${props.name}`}
       className="block h-full w-64 rounded-[8px] bg-gray-50 p-3 pb-9 text-gray-900 shadow-md dark:bg-gray-800 dark:text-gray-50 lg:w-[264px]"
     >
       <img
@@ -17,7 +17,7 @@ export function CountryCard(props) {
         <div>
           <p className="flex items-center justify-start gap-1 pb-2">
             <span className="font-semibold">Population: </span>
-            <span className="font-light">{formattedNumber}</span>
+            <span className="font-light">{props.population}</span>
           </p>
           <p className="flex items-center justify-start gap-1 pb-2">
             <span className="font-semibold">Region: </span>
@@ -29,6 +29,6 @@ export function CountryCard(props) {
           </p>
         </div>
       </div>
-    </a>
+    </Link>
   );
 }
