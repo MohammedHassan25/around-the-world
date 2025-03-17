@@ -14,7 +14,7 @@ export function CountryPage() {
       setCountries(data);
     };
     fetchCountries();
-  }, [countries, setCountries, loading === true]);
+  }, []);
 
   const country = countries.find((country) => country.name === name);
 
