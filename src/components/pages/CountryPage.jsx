@@ -6,7 +6,7 @@ const pSpan = "font-normal";
 
 export function CountryPage() {
   const { name } = useParams();
-  const { countries, setCountries, fetchData } = useOutletContext();
+  const { countries, setCountries, fetchData, loading } = useOutletContext();
 
   useEffect(() => {
     const fetchCountries = async () => {
@@ -14,11 +14,12 @@ export function CountryPage() {
       setCountries(data);
     };
     fetchCountries();
-  }, [countries]);
+  }, [countries, setCountries, loading === true]);
 
   const country = countries.find((country) => country.name === name);
 
-  if (!country) {
+  if (!country && loading === true) {
+    console.log("Country not found");
     return (
       <p className="h-screen pt-12 text-center text-lg font-semibold text-gray-700 dark:text-gray-300">
         Loading ...
