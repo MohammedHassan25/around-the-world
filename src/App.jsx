@@ -3,15 +3,15 @@ import { MainPage, Body, CountryPage } from "./components/index";
 
 let router = createBrowserRouter([
   {
-    path: "./",
+    path: "/",
     element: <MainPage />,
     children: [
       {
-        path: "./",
+        path: "/",
         element: <Body />,
       },
       {
-        path: "./:name",
+        path: ":name",
         element: <CountryPage />,
       },
     ],
