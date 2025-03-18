@@ -18,8 +18,7 @@ export function CountryPage() {
 
   const country = countries.find((country) => country.name === name);
 
-  if (!country && loading === true) {
-    console.log("Country not found");
+  if (!country) {
     return (
       <p className="h-screen pt-12 text-center text-lg font-semibold text-gray-700 dark:text-gray-300">
         Loading ...
