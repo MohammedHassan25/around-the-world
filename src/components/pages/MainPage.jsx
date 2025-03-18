@@ -11,6 +11,7 @@ export function MainPage() {
     try {
       const response = await fetch("https://restcountries.com/v3.1/all");
       const data = await response.json();
+      console.log(data);
       const filteredData = data.filter(
         (country) => country.name?.common !== "Israel",
       );
@@ -22,7 +23,9 @@ export function MainPage() {
             : null,
           population: country.population.toLocaleString("en-US"),
           currencies: country.currencies
-            ? Object.values(country.currencies)[0]?.name
+            ? Object.values(country.currencies).map((currency) => {
+              return currency.name;
+              }).join(" , ")
             : null,
           region: country.region,
           subregion: country.subregion
@@ -32,7 +35,7 @@ export function MainPage() {
           flag: country.flags?.svg,
           domain: country.tld ? country.tld.join(" , ") : null,
           languages: country.languages
-            ? Object.values(country.languages)[0]
+            ? Object.values(country.languages).join(" , ")
             : null,
         };
       });
