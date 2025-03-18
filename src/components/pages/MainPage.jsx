@@ -30,7 +30,7 @@ export function MainPage() {
             : country.name?.common,
           capital: country.capital ? country.capital[0] : null,
           flag: country.flags?.svg,
-          domain: country.tld ? country.tld[0] : null,
+          domain: country.tld ? country.tld.join(" , ") : null,
           languages: country.languages
             ? Object.values(country.languages)[0]
             : null,
