@@ -11,7 +11,6 @@ export function MainPage() {
     try {
       const response = await fetch("https://restcountries.com/v3.1/all");
       const data = await response.json();
-      console.log(data);
       const filteredData = data.filter(
         (country) => country.name?.common !== "Israel",
       );
