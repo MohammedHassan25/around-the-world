@@ -40,7 +40,7 @@ export function Logo() {
           fill="#FAD52A"
         />
       </svg>
-      <p className="text-2xl font-semibold">Around The World</p>
+      <p className="text-2xl font-semibold dark:text-gray-100">Around The World</p>
     </Link>
   );
 }

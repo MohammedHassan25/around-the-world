@@ -15,33 +15,38 @@ export function MainPage() {
       const filteredData = data.filter(
         (country) => country.name?.common !== "Israel",
       );
-      const country = filteredData.map((country) => {
-        return {
-          name: country.name?.common,
-          nativeName: country.name?.nativeName
-            ? Object.values(country.name.nativeName)[0].common
-            : null,
-          population: country.population.toLocaleString("en-US"),
-          currencies: country.currencies
-            ? Object.values(country.currencies).map((currency) => {
-              return currency.name;
-              }).join(" , ")
-            : null,
-          region: country.region,
-          subregion: country.subregion
-            ? country.subregion
-            : country.name?.common,
-          capital: country.capital ? country.capital[0] : null,
-          flag: country.flags?.svg,
-          domain: country.tld ? country.tld.join(" , ") : null,
-          languages: country.languages
-            ? Object.values(country.languages).join(" , ")
-            : null,
-        };
-      });
-      return country;
+      const country = !JSON.parse(localStorage.getItem("countries"))
+        ? filteredData.map((country) => {
+            return {
+              name: country.name?.common,
+              nativeName: country.name?.nativeName
+                ? Object.values(country.name.nativeName)[0].common
+                : null,
+              population: country.population.toLocaleString("en-US"),
+              currencies: country.currencies
+                ? Object.values(country.currencies)
+                    .map((currency) => {
+                      return currency.name;
+                    })
+                    .join(" , ")
+                : null,
+              region: country.region,
+              subregion: country.subregion
+                ? country.subregion
+                : country.name?.common,
+              capital: country.capital ? country.capital[0] : null,
+              flag: country.flags?.svg,
+              domain: country.tld ? country.tld.join(" , ") : null,
+              languages: country.languages
+                ? Object.values(country.languages).join(" , ")
+                : null,
+            };
+          })
+        : JSON.parse(localStorage.getItem("countries"));
+      localStorage.setItem("countries", JSON.stringify(country));
+      return JSON.parse(localStorage.getItem("countries"));
     } catch (error) {
-      console.error(error);
+      return JSON.parse(localStorage.getItem("countries"));
     } finally {
       setLoading(false);
     }
