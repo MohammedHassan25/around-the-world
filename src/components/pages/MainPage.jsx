@@ -1,4 +1,4 @@
-import { Outlet } from "react-router-dom";
+import { data, Outlet } from "react-router-dom";
 import { Header } from "../index";
 import { useEffect, useState } from "react";
 
@@ -6,6 +6,7 @@ export function MainPage() {
   const [filteredCountries, setFilteredCountries] = useState([]);
   const [countries, setCountries] = useState([]);
   const [loading, setLoading] = useState(true);
+
   async function fetchData() {
     setLoading(true);
     try {
@@ -14,38 +15,37 @@ export function MainPage() {
       const filteredData = data.filter(
         (country) => country.name?.common !== "Israel",
       );
-      const country = !JSON.parse(localStorage.getItem("countries"))
-        ? filteredData.map((country) => {
-            return {
-              name: country.name?.common,
-              nativeName: country.name?.nativeName
-                ? Object.values(country.name.nativeName)[0].common
-                : null,
-              population: country.population.toLocaleString("en-US"),
-              currencies: country.currencies
-                ? Object.values(country.currencies)
-                    .map((currency) => {
-                      return currency.name;
-                    })
-                    .join(" , ")
-                : null,
-              region: country.region,
-              subregion: country.subregion
-                ? country.subregion
-                : country.name?.common,
-              capital: country.capital ? country.capital[0] : null,
-              flag: country.flags?.svg,
-              domain: country.tld ? country.tld.join(" , ") : null,
-              languages: country.languages
-                ? Object.values(country.languages).join(" , ")
-                : null,
-            };
-          })
-        : JSON.parse(localStorage.getItem("countries"));
+      const country = filteredData.map((country) => {
+        return {
+          name: country.name?.common,
+          nativeName: country.name?.nativeName
+            ? Object.values(country.name.nativeName)[0].common
+            : null,
+          population: country.population.toLocaleString("en-US"),
+          currencies: country.currencies
+            ? Object.values(country.currencies)
+                .map((currency) => {
+                  return currency.name;
+                })
+                .join(" , ")
+            : null,
+          region: country.region,
+          subregion: country.subregion
+            ? country.subregion
+            : country.name?.common,
+          capital: country.capital ? country.capital[0] : null,
+          flag: country.flags?.svg,
+          domain: country.tld ? country.tld.join(" , ") : null,
+          languages: country.languages
+            ? Object.values(country.languages).join(" , ")
+            : null,
+        };
+      });
       localStorage.setItem("countries", JSON.stringify(country));
-      return JSON.parse(localStorage.getItem("countries"));
+      return country;
     } catch (error) {
-      return JSON.parse(localStorage.getItem("countries"));
+      const storedCountries = localStorage.getItem("countries");
+      return storedCountries ? JSON.parse(storedCountries) : null;
     } finally {
       setLoading(false);
     }
@@ -53,11 +53,16 @@ export function MainPage() {
 
   useEffect(() => {
     const fetchCountries = async () => {
-      const data = await fetchData();
+      const storedCountries = localStorage.getItem("countries");
+      const data = storedCountries
+        ? JSON.parse(storedCountries)
+        : await fetchData();
       setCountries(data);
+      setLoading(false);
     };
     fetchCountries();
   }, []);
+
   return (
     <div className="font-inter dark:text-gray-100">
       <Header />

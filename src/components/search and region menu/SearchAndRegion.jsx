@@ -5,6 +5,7 @@ export function SearchAndRegion(props) {
   return (
     <form
       id="form"
+      aria-label="search and region menu"
       className="flex flex-col items-start justify-between px-4 md:flex-row md:items-center"
     >
       <Search

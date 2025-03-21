@@ -13,6 +13,7 @@ export function SwitchTheam() {
   return (
     <div className="flex h-8 w-14 items-center justify-around rounded-switcher bg-gray-800 dark:bg-gray-900">
       <button
+        aria-label="light mode"
         onClick={() => setIsDark("light")}
         className={`flex h-5 w-5 items-center justify-center transition-all ${
           IsDark === "light" ? "rounded-full bg-white" : "bg-transparent"
@@ -38,6 +39,7 @@ export function SwitchTheam() {
         </svg>
       </button>
       <button
+        aria-label="Dark mode"
         onClick={() => setIsDark("dark")}
         className={`flex h-5 w-5 items-center justify-center transition-all ${
           IsDark === "dark" ? "rounded-full bg-white" : "bg-transparent"

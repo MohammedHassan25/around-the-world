@@ -23,6 +23,7 @@ export function RegionMenu(props) {
     <>
       <Select
         defaultValue={options[0]}
+        aria-label="region menu"
         id="region-filter"
         name="region"
         classNames={{
