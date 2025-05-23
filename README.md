@@ -10,4 +10,4 @@ You can view some statistics about your country, such as population, primary dom
 
 You can also search by region or search bar.
 
-## HAVE NICE DAY
+## HAVE NICE DAY 😉✨
