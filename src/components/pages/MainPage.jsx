@@ -1,6 +1,7 @@
 import { data, Outlet } from "react-router-dom";
 import { Header } from "../index";
 import { useEffect, useState } from "react";
+import DataCountries from "../../data.json";
 
 export function MainPage() {
   const [filteredCountries, setFilteredCountries] = useState([]);
@@ -44,7 +45,7 @@ export function MainPage() {
       localStorage.setItem("countries", JSON.stringify(country));
       return country;
     } catch (error) {
-      const storedCountries = localStorage.getItem("countries");
+      const storedCountries = localStorage.getItem("countries")  ? localStorage.getItem("countries") : JSON.stringify(DataCountries);
       return storedCountries ? JSON.parse(storedCountries) : null;
     } finally {
       setLoading(false);
