@@ -1,5 +1,17 @@
 [
   {
+    "name": "Palestine",
+    "nativeName": "فلسطين",
+    "population": "5,483,450",
+    "currencies": "Jordanian dinar , Egyptian pound",
+    "region": "Asia",
+    "subregion": "Western Asia",
+    "capital": "Jerusalem",
+    "flag": "https://flagcdn.com/ps.svg",
+    "domain": ".ps",
+    "languages": "Arabic"
+  },
+  {
     "name": "Afghanistan",
     "nativeName": "افغانستان",
     "population": "41,046,124",
